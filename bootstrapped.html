@@ -8,7 +8,6 @@
 
 		<!-- Optional theme -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-
 		
 	</head>
 
@@ -194,16 +193,185 @@
 							<li><i>email</i></li>
 						</ul>
 
-					<div class="data-form">
-						<form action="post">
-							<div class="form-field">
-								<i ></i>
-								<input type="text" name="name" placeholder="enter your name">
-							</div>
+		
+ 				<form name="myform" onsubmit="ExampleJS()">
+ 					First name: <input type="text" id="fname" name = "firstname"/> <br>
+ 					<input name= "submit" type="submit" value="Update"/><br>
+ 				</form>
+
+ 				<form name="myform" onsubmit="js2()">
+ 					Last name: <input type="text" id="lname" name="lastname"/> <br> 
+ 					<input name = "Submit" type="submit" value="Update" />
+ 				</form>
+
+ 				<!--User name-->
+				<form>
+					Username(6-8 characters): <input type='text' id='restrict'/>
+					<input type='button' 
+						onclick="lengthRestriction(document.getElementById('restrict'), 6, 8)"
+						value='Check Field' /> 
+				</form><br>
+
+ 				<form name="email">
+ 					
+ 					email: <input type="email" id="email" /><br>
+ 					<input name="Submit" type="submit" onsubmit="email(document.getElementById('email'),'enter an email!')" value="Update"/>
+ 				</form><br>
+
+ 				
+				<form>
+				Email: <input type='text' id='emailer'/>
+				<input type='button' 
+					onclick="emailValidator(document.getElementById('emailer'), 'Not a Valid Email')"
+					value='Check Field' />
+				</form>
+
+ 				<form name="myform" onsubmit="pswd()">
+ 					Password: <input type="password" id="pswd" name="password/>" <br>
+ 					<input name="submit" type="submit"/>
+ 				</form>
 
 
-					</div>	
 
+ 				
+
+				<form>
+					Numbers Only: <input type='text' id='numbers'/>
+					<input type='button' 
+						onclick="isNumeric(document.getElementById('numbers'), 'Numbers Only Please')"
+						value='Check Field' />
+				</form>
+
+
+				<form>
+					Letters Only: <input type='text' id='letters'/>
+					<input type='button' 
+						onclick="isAlpha(document.getElementById('letters'), 'Letters Only Please')"
+						value='Check Field' /><br>
+				</form>
+
+				<form>
+					Letters and Numbers: <input type="text" id="alphaNum"/>
+					<input type="button" onclick="Alphanumeric(document.getElementById('alphaNum'),'Letters and numbers please')"
+					value='Check Field' /><br>
+				</form>
+
+				<form>
+				  Telephone: <input type="text" id='phonenumber' name="phone" required /><br>
+				  <input type="submit" onsubmit="phone(document.getElementById('phonenumber'),'give a phone number!')"  value='submit' /><br>
+				</form>
+
+
+ 				<script>
+ 					function ExampleJS(){
+ 						var jFirst = document.getElementById("fname").value;
+						alert("your first name is: "+ jFirst);
+ 					}
+ 				</script>
+
+ 				<script type="text/javascript">
+ 					function js2(){
+ 						var jLast = document.getElementById("lname").value;
+						alert("your last name is: "+ jLast);
+ 					}
+ 				</script>
+
+ 				<script>
+ 					function pswd(){
+ 						var pass = document.getElementById("pswd").value;
+ 						alert(pass);
+ 					}
+ 				</script>
+			
+ 				<script type='text/javascript'>
+					function lengthRestriction(elem, min, max){
+						var uInput = elem.value;
+						if(uInput.length >= min && uInput.length <= max){
+							return true;
+						}else{
+							alert("Please enter between " +min+ " and " +max+ " characters");
+							elem.focus();
+							return false;
+						}
+					}
+				</script>
+
+ 				<script type="text/javascript">
+ 					function email(elem,helperMsg){
+ 							alert('good'+elem.value);
+ 						}
+ 						// var mail=document.getElementById('email').value
+ 						// alert(mail);
+ 					
+ 				</script>
+
+ 				<script type='text/javascript'>
+					function emailValidator(elem, helperMsg){
+						var emailExp = /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/;
+						if(elem.value.match(emailExp)){
+							alert("your email is "+elem.value)
+							return true;
+						}else{
+							alert(helperMsg);
+							elem.focus();
+							return false;
+						}
+					}
+				</script>
+
+ 				<script type='text/javascript'>
+					function isNumeric(elem, helperMsg){
+						var numericExpression = /^[0-9]+$/;
+						
+						if(elem.value.match(numericExpression)){
+							var numb = document.getElementById("numbers").value
+							alert(numb);
+							return true;
+						}else{
+							alert(helperMsg);
+
+							elem.focus();
+							return false;
+						}
+					}
+					</script>
+				
+				<script type='text/javascript'>
+					function isAlpha(elem, helperMsg){
+						var alphaExp = /^[a-zA-Z]+$/;
+						if(elem.value.match(alphaExp)){
+							alert("you typed "+elem.value)
+							return true;
+						}else {
+							alert(helperMsg);
+							elem.focus();
+							return false;
+						}
+					}
+				</script>
+
+				<script>
+					function Alphanumeric(elem, helperMsg){
+						var alphaExp= /^[0-9a-zA-Z]+$/;
+						if (elem.value.match(alphaExp)){
+							alert("you typed "+elem.value);
+							return true;
+						}else{
+							alert(helperMsg);
+							elem.focus();
+							return false;
+						}
+					}
+				</script>
+
+				<script>
+					function phone(elem, helperMsg){
+							var numbs = document.getElementById('phonenumber').value
+							alert(numbs);
+							return true;
+							}		
+				</script>
+				
 
 
 			</div>
@@ -216,10 +384,14 @@
 	
 
 		<!-- jQuery -->
-		<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-		<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+		<script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 
 		<!-- Latest compiled and minified JavaScript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 	</body>
 </html>
+
+
+
+
