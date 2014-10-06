@@ -1,6 +1,8 @@
 
 assignment:
 
+create your own site with css, html, javascript from scratch no bootstping
+
 form  with send button 
 on click event  displays data on alert(‘ ‘)
 
