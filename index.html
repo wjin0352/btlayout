@@ -54,23 +54,74 @@
 					<h3>Please enter your information below: </h3><br>
 				</div>
 
-				<!-- my form / contact form -->
+				<!-- my form / contact form starts -->
 				<div class="data-form">
 					<form action="post">
 						<div class="row">
 							
 							<div>
-								<label>Name<label>
+								<label>Name</label>
 								<div class="form-field">
 									<i></i>
 									<input type="text" name="name" placeholder="Enter your name" required>
 								</div>
 							</div>
 
+							<div>
+								<label>Email</label>
+								<div class="form-field">
+									<i></i>
+									<input type="email" name="name" placeholder="Enter your email" required>
+								</div>
+							</div>
+
+							<!-- first row class begins for phone and website input -->
+							<div class="row">
+								<div>
+									<label>Telephone</label>
+									<div class="form-field">
+										<i></i>
+										<input type="tel" name="name" placeholder="Enter your phone" required>
+									</div>
+								</div>
+
+								<div>
+									<label>Website</label>
+									<div class="form-field">
+										<i></i>
+										<input type="url" name="name" placeholder="Enter your website" required>
+									</div>
+								</div>
+							</div><!-- first row class end -->
+
+							<div class="row"><!-- 2nd row start for message field input -->
+								<div>
+									<label>Message</label>
+									<div class="form-field">
+									 <i></i>
+									 <textarea name="name" placeholder="Enter your message" required></textarea>
+									</div>
+								</div>
+
+							</div> <!-- 2nd row end -->
+
+							<div class="row"> <!-- 3rd row start for send button -->
+								<div>
+									<input type="submit" class="btn" value="SEND YOUR MESSAGE">
+								</div>
+							</div>
+
+					</form>
+				</div>
+				<!-- Contact form ends -->
+ 
+
+
+
 						
 
-		
- 				<!-- <form name="myform" onsubmit="ExampleJS()">
+			<!--
+ 			 <form name="myform" onsubmit="ExampleJS()">
  					First name: <input type="text" id="fname" name = "firstname"/> <br>
  					<input name= "submit" type="submit" value="Update"/><br>
  				</form>
@@ -79,13 +130,13 @@
  					Last name: <input type="text" id="lname" name="lastname"/> <br> 
  					<input name = "Submit" type="submit" value="Update" />
  				</form>
-
- 				<!--
+ 				
+ 				
 				<form>
 					Username(6-8 characters): <input type='text' id='restrict'/>
 					<input type='button' 
 						onclick="lengthRestriction(document.getElementById('restrict'), 6, 8)"
-						value='Check Field' /> 
+						value='Check Field's/> 
 				</form><br>
 
 
@@ -107,8 +158,6 @@
  					Password: <input type="password" id="pswd" name="password/>" <br>
  					<input name="submit" type="submit"/>
  				</form>
-
-
 
  				
 
